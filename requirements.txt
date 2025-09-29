@@ -2,3 +2,4 @@ fastapi
 uvicorn
 requests
 langchain_google_genai
+pydantic

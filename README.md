@@ -4,6 +4,18 @@
 
 [https://news-fetch-gemini.vercel.app/]
 
+### Example Test on (Topic = "Artificial Intelligence")
+
+[https://news-fetch-gemini.vercel.app/"Artificial-Intelligence"]
+
+## You can also test with postman or curl
+
+```
+    curl -X POST "https://news-fetch-gemini.vercel.app/generate-post" \
+    -H "Content-Type: application/json" \
+    -d '{"topic": "Artificial Intelligence"}'
+```
+
 A Python-based AI agent that fetches the latest news articles on a given topic, summarizes them into a **professional LinkedIn-style post**, and provides article links and image suggestions. Built using **Google Gemini (ChatGoogleGenerativeAI)** and **GNews API**, with a flexible architecture suitable for production.
 
 ---
