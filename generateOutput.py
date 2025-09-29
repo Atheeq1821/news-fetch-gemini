@@ -28,4 +28,4 @@ def generate_linkedin_post(news_list,topic):
                 {news_text}
             """
     response = gemini.invoke(prompt)
-    return response["messages"][-1].content
+    return response.content
