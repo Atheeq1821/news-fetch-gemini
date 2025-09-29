@@ -6,6 +6,10 @@ from gnews import getNewsFromSource
 
 from utils import frontent_format_conversion
 app = FastAPI()
+
+@app.get("/")
+def start():
+    return ({"Message from developer" : "To fetch the news content based on topic. Please modify url as 'https://news-fetch-gemini.vercel.app/(Type your topic and hit enter)' "})
 @app.get("/{topic}",)
 def getnews(topic):
 
