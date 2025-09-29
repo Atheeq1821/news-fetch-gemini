@@ -1,5 +1,7 @@
-from langchain_google_genai import ChatGoogleGenerativeAI
-from constants import GOOGLE_API_KEY
+
+
+from utils import gemini_initialization
+
 
 def generate_linkedin_post(news_list,topic):
     """
@@ -7,18 +9,13 @@ def generate_linkedin_post(news_list,topic):
     Includes links for each article.
 
     """
-    gemini = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash",
-        api_key=GOOGLE_API_KEY,
-        temperature=0.7
-    )
+    gemini = gemini_initialization()
 
     if not news_list:
         return f"No news found for topic: {topic}"
     
     news_text = "\n".join([f"- {n['title']} ({n['url']})" for n in news_list])
-    print("News-Text")
-    print(news_text)
+
     prompt = f"""
                 You are a professional content writer.
                 Write a LinkedIn post about '{topic}' summarizing the following news in an engaging, professional tone.
@@ -26,6 +23,8 @@ def generate_linkedin_post(news_list,topic):
 
                 News:
                 {news_text}
+                *** Note : Dont start linkedin post content like 'Here's a LinkedIn post....' , 'Your linkedin Content .....' etc.
+                JUST START WITH DIRECT CONTENT
             """
     response = gemini.invoke(prompt)
     return response.content

@@ -1,12 +1,11 @@
-
-from constants import GNEWS_API_KEY
 import requests
+from utils import get_news_url
 def getNewsFromSource(topic):
     """
     Fetch 5 latest news articles on the given topic using GNews API,
     including the image for each article.
     """
-    url = f"https://gnews.io/api/v4/search?q={topic}&lang=en&max=5&apikey={GNEWS_API_KEY}"
+    url = get_news_url(topic)
     response = requests.get(url)
     if response.status_code != 200:
         print(f"Error fetching news: {response.status_code}")
