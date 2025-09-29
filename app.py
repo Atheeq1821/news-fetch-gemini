@@ -1,4 +1,4 @@
-# from deta import Deta
+
 from fastapi import FastAPI
 from generateOutput import generate_linkedin_post
 from gnews import getNewsFromSource
@@ -10,6 +10,7 @@ app = FastAPI()
 def getnews(topic):
 
     news_articles = getNewsFromSource(topic=topic)
+    
     linkedin_post = generate_linkedin_post(news_articles,topic)
     
     result = frontent_format_conversion(topic=topic,news_articles=news_articles,linkedin_post=linkedin_post)
