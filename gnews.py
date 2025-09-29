@@ -1,7 +1,7 @@
 
 from constants import GNEWS_API_KEY
 import requests
-def getnews(topic):
+def getNewsFromSource(topic):
     """
     Fetch 5 latest news articles on the given topic using GNews API,
     including the image for each article.
