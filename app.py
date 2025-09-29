@@ -9,7 +9,7 @@ app = FastAPI()
 
 @app.get("/")
 def start():
-    return ({"Message from developer" : "To fetch the news content based on topic. Please modify url as 'https://news-fetch-gemini.vercel.app/(Type your topic and hit enter)' "})
+    return ({"Message from developer" : "To fetch the news content based on topic. Please modify url as 'https://news-fetch-gemini.vercel.app/(Type your topic inside a string literal and hit enter)' "})
 @app.get("/{topic}",)
 def getnews(topic):
 
